@@ -59,14 +59,6 @@ FOREIGN KEY fk_id_usuario (id_usuario)REFERENCES usuario(id_usuario),
 FOREIGN KEY fk_id_juego(id_juego)REFERENCES juego(id_juego) 
 );
 
-INSERT INTO pais (id_pais, nombre) VALUES (11, 'Peru'), (12,'Bolivia'),(13,'Ecuador');
-INSERT INTO empresa(id_empresa, nombre, id_pais) VALUES (4,"Epic Games", 5 ),(5,"Mojang Studios",14),(6,"Pubg Studios",15);
-INSERT INTO juego (id_juego, nombre,id_empresa, fecha,id_categoria, descripcion) VALUES 
-(4, 'Fortnite', 4,'2017-09-26', 3,'Battle Royale y juego de acción'),
-(5, 'Minecraft',5, '2009-11-18', 7,'Sandbox y Mundo Abierto'),
-(6, 'PUBG', 6,'2017-08-23', 3,'Battle Royale multijugador');
-insert INTO categoria (id_categoria, nombre)values (8,'Aventura');
-INSERT INTO juego (id_juego, nombre,id_empresa, fecha,id_categoria, descripcion) VALUES (7, 'GTA V', 3, '2015-04-15',8,'ofrece a los jugadores la opción de explorar el galardonado mundo de Los Santos');
 insert INTO compra(id_compra, id_usuario, id_juego, monto)values(7,2,6,100.00),(8,1,7,778.00);
 
 SELECT * from juego;
