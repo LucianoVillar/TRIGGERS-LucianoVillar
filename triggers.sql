@@ -98,18 +98,15 @@ juego int,
 fecha datetime
 );
 
-select * from registro_compras;
-
-DELIMITER$$
-CREATE TRIGGER compra_juego_registro
-AFTER INSERT ON compra
+DELIMITER $$
+CREATE TRIGGER generador_fecha
+BEFORE INSERT ON registro_compras
 FOR EACH ROW
-INSERT INTO registro_compras(comprador, juego, fecha)
-VALUES(NEW.id_usuario, NEW.id_juego, CURRENT_TIMESTAMP());
+BEGIN
+    SET NEW.fecha = NOW();
 END$$
+DELIMITER ;  
 
+select * from registro_compras ;
 insert INTO compra(id_compra, id_usuario, id_juego, monto)values(9,5,8,685.00);
-
-    
-    
-
+insert INTO compra(id_compra, id_usuario, id_juego, monto)values(10,2,4,0.00);
